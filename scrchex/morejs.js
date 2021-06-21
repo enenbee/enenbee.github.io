@@ -26,8 +26,8 @@ class MoreJS {
                     "text": "if [iff] then [then] else [eelse]",
                     "arguments": {
                         "iff": {
-                            "type":"string",
-                            "defaultValue":"false"
+                            "type":"boolean",
+                            "defaultValue":""
                         },
                         "then": {
                             "type":"string",
