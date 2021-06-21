@@ -38,6 +38,12 @@ class MoreJS {
                             "defaultValue":"this is false"
                         }
                     }
+                },
+                {
+                    "opcode":"random",
+                    "blockType": "reporter",
+                    "text": "Random from 0 to 1",
+                    "arguments": {}
                 }
             ],
             "menus": {
@@ -50,6 +56,9 @@ class MoreJS {
     }
     ifelsethen({iff,then,eelse}) {
         return iff?then:eelse
+    }
+    random() {
+      return Math.random()
     }
 }
 Scratch.extensions.register(new MoreJS())
