@@ -26,7 +26,7 @@ class MoreJS {
                     "text": "if [iff] then [then] else [eelse]",
                     "arguments": {
                         "iff": {
-                            "type":"bool",
+                            "type":"boolean",
                             "defaultValue":""
                         },
                         "then": {
