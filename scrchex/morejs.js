@@ -25,7 +25,7 @@ class MoreJS {
             }
         }
     }
-    testblock(num1,num2) {
+    testblock({num1,num2}) {
         return num1**num2
     }
 }
