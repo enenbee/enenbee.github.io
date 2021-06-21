@@ -40,7 +40,7 @@ class MoreJS {
                     }
                 },
                 {
-                    "opcode":"random",
+                    "opcode":"randomfloat",
                     "blockType": "reporter",
                     "text": "Random from 0 to 1",
                     "arguments": {}
@@ -57,7 +57,7 @@ class MoreJS {
     ifelsethen({iff,then,eelse}) {
         return iff?then:eelse
     }
-    random() {
+    randomfloat() {
       return Math.random()
     }
 }
