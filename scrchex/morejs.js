@@ -5,9 +5,9 @@ class MoreJS {
             "name": "MoreJS",
             "blocks": [
                 {
-                    "opcode":"testblock",
+                    "opcode":"power",
                     "blockType": "reporter",
-                    "text": "TestBlock [num1] ^ [num2]",
+                    "text": "[num1] ^ [num2]",
                     "arguments": {
                         "num1": {
                             "type":"number",
@@ -25,7 +25,7 @@ class MoreJS {
             }
         }
     }
-    testblock({num1,num2}) {
+    power({num1,num2}) {
         return num1**num2
     }
 }
