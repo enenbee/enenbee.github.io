@@ -1,3 +1,4 @@
+  
 class MoreJS {
     getInfo() {
         return {
@@ -18,6 +19,25 @@ class MoreJS {
                             "defaultValue":"8"
                         }
                     }
+                },
+                {
+                    "opcode":"ifelsethen",
+                    "blockType": "reporter",
+                    "text": "if [iff] then [then] else [eelse]",
+                    "arguments": {
+                        "iff": {
+                            "type":"boolean",
+                            "defaultValue":""
+                        },
+                        "then": {
+                            "type":"string",
+                            "defaultValue":"this is true"
+                        },
+                        "eelse": {
+                            "type":"string",
+                            "defaultValue":"this is false"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -27,6 +47,9 @@ class MoreJS {
     }
     power({num1,num2}) {
         return num1**num2
+    }
+    ifelsethen({iff,then,eelse}) {
+        return iff?then:eelse
     }
 }
 Scratch.extensions.register(new MoreJS())
