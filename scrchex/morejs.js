@@ -140,18 +140,13 @@ class MoreJS {
         return num.toFixed(dec)
     }
     indexstart({word,sentence,start}){
-        return sentence.indexOf(word,start)
+        return sentence.indexOf(word,start)+1
     }
     gethtml({urlz}){
-        //code from this dude https://scratch.mit.edu/discuss/topic/277217/
-
-        $.ajaxSetup({
-            async: false
-        })
-        $.get('https://cors-anywhere.herokuapp.com/'+urlz,(data)=>{
-            window.httpdata=data
-        })
-
+        var xhttp = new XMLHttpRequest()
+        xhttp.onreadystatechange = function() {
+            window.httpdata=xhttp.responseText
+        }
         return window.httpdata
     }
 
