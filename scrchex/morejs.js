@@ -1,4 +1,3 @@
-  
 class MoreJS {
     getInfo() {
         return {
