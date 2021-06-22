@@ -105,6 +105,25 @@ class MoreJS {
                     }
                 },
                 {
+                    "opcode":"indexend",
+                    "blockType": "reporter",
+                    "text": "last instance of [word] in [sentence] ending at [end]",
+                    "arguments": {
+                        "word": {
+                            "type":"string",
+                            "defaultValue":"world"
+                        },
+                        "sentence": {
+                            "type":"string",
+                            "defaultValue":"hello world"
+                        },
+                        "end":{
+                            "type":"number",
+                            "defaultValue":"12"
+                        }
+                    }
+                },
+                {
                     "opcode":"gethtml",
                     "blockType": "reporter",
                     "text": "get HTML from [urlz]",
@@ -140,7 +159,10 @@ class MoreJS {
         return num.toFixed(dec)
     }
     indexstart({word,sentence,start}){
-        return sentence.indexOf(word,start)+1
+        return sentence.indexOf(word,start-1)+1
+    }
+    indexend({word,sentence,start}){
+        return sentence.lastIndexOf(word,start-1)+1
     }
     gethtml({urlz}){
         var xhttp = new XMLHttpRequest()
