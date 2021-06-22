@@ -126,7 +126,7 @@ class MoreJS {
                 {
                     "opcode":"gethtml",
                     "blockType": "reporter",
-                    "text": "get HTML from [urlz]",
+                    "text": "get data from [urlz]",
                     "arguments": {
                         "urlz": {
                             "type":"string",
@@ -166,9 +166,15 @@ class MoreJS {
     }
     gethtml({urlz}){
         var xhttp = new XMLHttpRequest()
+        
+        var out=null
+        
         xhttp.onreadystatechange = function() {
-            var out=xhttp.responseText
+            out=xhttp.responseText
         }
+        
+        while(out==null){}
+        
         return out
     }
 
