@@ -167,7 +167,7 @@ class MoreJS {
     gethtml({urlz}){
         var xhttp = new XMLHttpRequest()
         xhttp.onreadystatechange = function() {
-            out=xhttp.responseText
+            var out=xhttp.responseText
         }
         return out
     }
