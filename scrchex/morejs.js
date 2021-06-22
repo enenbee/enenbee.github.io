@@ -161,8 +161,8 @@ class MoreJS {
     indexstart({word,sentence,start}){
         return sentence.indexOf(word,start-1)+1
     }
-    indexend({word,sentence,start}){
-        return sentence.lastIndexOf(word,start-1)+1
+    indexend({word,sentence,end}){
+        return sentence.lastIndexOf(word,end-1)+1
     }
     gethtml({urlz}){
         var xhttp = new XMLHttpRequest()
