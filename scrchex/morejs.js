@@ -84,6 +84,25 @@ class MoreJS {
                             "defaultValue":"2"
                         }
                     }
+                },
+                {
+                    "opcode":"indexstart",
+                    "blockType": "reporter",
+                    "text": "first instance of [word] in [sentence] starting at [start]",
+                    "arguments": {
+                        "word": {
+                            "type":"string",
+                            "defaultValue":"hello"
+                        },
+                        "sentence": {
+                            "type":"string",
+                            "defaultValue":"hello world"
+                        },
+                        "start":{
+                            "type":"number",
+                            "defaultValue":"0"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -108,6 +127,9 @@ class MoreJS {
     }
     limit({num,dec}){
         return num.toFixed(dec)
+    }
+    indexstart({word,sentence,start}){
+        return sentence.indexOf(word,start)
     }
 
 }
