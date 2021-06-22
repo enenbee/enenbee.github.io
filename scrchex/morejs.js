@@ -103,6 +103,17 @@ class MoreJS {
                             "defaultValue":"0"
                         }
                     }
+                },
+                {
+                    "opcode":"gethtml",
+                    "blockType": "reporter",
+                    "text": "get HTML from [urlz]",
+                    "arguments": {
+                        "urlz": {
+                            "type":"string",
+                            "defaultValue":"www.google.com"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -130,6 +141,18 @@ class MoreJS {
     }
     indexstart({word,sentence,start}){
         return sentence.indexOf(word,start)
+    }
+    gethtml({urlz}){
+        //code from this dude https://scratch.mit.edu/discuss/topic/277217/
+
+        $.ajaxSetup({
+            async: false
+        })
+        $.get('https://cors-anywhere.herokuapp.com/'+urlz,(data)=>{
+            window.httpdata=data
+        })
+
+        return window.httpdata
     }
 
 }
