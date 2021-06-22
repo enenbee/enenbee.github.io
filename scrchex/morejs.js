@@ -107,7 +107,8 @@ class MoreJS {
         return eval(code)
     }
     limit({num,dec}){
-        return num.toFixed(dec)
+        var x=num
+        return x.toFixed(dec)
     }
 
 }
