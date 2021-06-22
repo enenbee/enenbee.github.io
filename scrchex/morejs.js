@@ -69,6 +69,21 @@ class MoreJS {
                             "defaultValue":"10/4"
                         }
                     }
+                },
+                {
+                    "opcode":"firstletterof",
+                    "blockType": "reporter",
+                    "text": "First instance of [word] in [text]",
+                    "arguments": {
+                        "word": {
+                            "type":"string",
+                            "defaultValue":"world"
+                        },
+                        "text": {
+                            "type":"string",
+                            "defaultValue":"hello world"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -90,6 +105,9 @@ class MoreJS {
     }
     script({code}){
         return eval(code)
+    }
+    firstlettorof({word,text}){
+        return text.indexOf(word)
     }
 }
 Scratch.extensions.register(new MoreJS())
