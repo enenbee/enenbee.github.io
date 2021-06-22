@@ -166,14 +166,16 @@ class MoreJS {
     }
     gethtml({urlz}){
         var xhttp = new XMLHttpRequest()
-        
-        var out=null
+     
         
         xhttp.onreadystatechange = function() {
-            out=xhttp.responseText
+            var out=xhttp.responseText
         }
         
-        while(out==null){}
+        xhttp.open("GET",urlz,true)
+        xhttp.send()
+        
+        
         
         return out
     }
