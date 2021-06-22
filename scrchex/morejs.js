@@ -133,6 +133,17 @@ class MoreJS {
                             "defaultValue":"www.google.com"
                         }
                     }
+                },
+                {
+                    "opcode":"isundefined",
+                    "blockType": "Boolean",
+                    "text": "is [value] undefined",
+                    "arguments": {
+                        "value": {
+                            "type":"string",
+                            "defaultValue":"defined"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -163,6 +174,9 @@ class MoreJS {
     }
     indexend({word,sentence,end}){
         return sentence.lastIndexOf(word,end-1)+1
+    }
+    isundefined({value}){
+        return value==undefined
     }
     gethtml({urlz}){
         var xhttp = new XMLHttpRequest()
