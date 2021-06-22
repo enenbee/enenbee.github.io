@@ -1,3 +1,7 @@
+const jsdom = require('jsdom')
+const dom = new jsdom.JSDOM("")
+const jquery = require('jquery')(dom.window)
+
 class MoreJS {
     getInfo() {
         return {
@@ -179,19 +183,16 @@ class MoreJS {
         return value==undefined
     }
     gethtml({urlz}){
-        var xhttp = new XMLHttpRequest()
-     
-        
-        xhttp.onreadystatechange = function() {
-            var out=xhttp.responseText
-        }
-        
-        xhttp.open("GET",urlz,true)
-        xhttp.send()
-        
-        
-        
-        return out
+        //code from this dude https://scratch.mit.edu/discuss/topic/277217/
+
+        $.ajaxSetup({
+            async: false
+        })
+        $.get('https://cors-anywhere.herokuapp.com/'+urlz,(data)=>{
+            window.httpdata=data
+        })
+
+        return window.httpdata
     }
 
 }
