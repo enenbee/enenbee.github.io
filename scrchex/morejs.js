@@ -71,17 +71,17 @@ class MoreJS {
                     }
                 },
                 {
-                    "opcode":"firstletterof",
+                    "opcode":"limit",
                     "blockType": "reporter",
-                    "text": "First instance of [word] in [text]",
+                    "text": "limit [num] to [dec] decimal points",
                     "arguments": {
-                        "word": {
-                            "type":"string",
-                            "defaultValue":"world"
+                        "num": {
+                            "type":"number",
+                            "defaultValue":"74.642"
                         },
-                        "text": {
-                            "type":"string",
-                            "defaultValue":"hello world"
+                        "dec": {
+                            "type":"number",
+                            "defaultValue":"2"
                         }
                     }
                 }
@@ -106,8 +106,9 @@ class MoreJS {
     script({code}){
         return eval(code)
     }
-    firstlettorof({word,text}){
-        return text.indexOf(word)
+    limit({num,dec}){
+        return num.toFixed(dec)
     }
+
 }
 Scratch.extensions.register(new MoreJS())
