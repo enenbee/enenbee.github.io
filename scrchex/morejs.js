@@ -43,6 +43,21 @@ class MoreJS {
                     "blockType": "reporter",
                     "text": "Random from 0 to 1",
                     "arguments": {}
+                },
+                {
+                    "opcode":"atan2",
+                    "blockType": "reporter",
+                    "text": "atan2 [y] [x]",
+                    "arguments": {
+                        "y": {
+                            "type":"number",
+                            "defaultValue":"9"
+                        },
+                        "x": {
+                            "type":"number",
+                            "defaultValue":"4"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -58,6 +73,9 @@ class MoreJS {
     }
     randomfloat() {
       return Math.random()
+    }
+    atan2({y,x}){
+        return Math.atan2(y,x) * (180/Math.PI)
     }
 }
 Scratch.extensions.register(new MoreJS())
