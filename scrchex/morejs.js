@@ -58,6 +58,17 @@ class MoreJS {
                             "defaultValue":"4"
                         }
                     }
+                },
+                {
+                    "opcode":"script",
+                    "blockType": "reporter",
+                    "text": "Javascript [code]",
+                    "arguments": {
+                        "code": {
+                            "type":"string",
+                            "defaultValue":"10/4"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -76,6 +87,9 @@ class MoreJS {
     }
     atan2({y,x}){
         return Math.atan2(y,x) * (180/Math.PI)
+    }
+    script({code}){
+        return eval(code)
     }
 }
 Scratch.extensions.register(new MoreJS())
