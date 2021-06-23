@@ -223,7 +223,49 @@ class MoreJS {
                             "defaultValue":"1"
                         }
                     }
+                },
+                {
+                    "opcode":"timesinceadvanced",
+                    "blockType": "reporter",
+                    "text": "Milliseconds since year: [year] month: [month] day: [day] hour: [hour] minute: [minute] second: [second] millisecond: [millisecond]",
+                    "arguments": {
+                        "year": {
+                            "type":"number",
+                            "defaultValue":"2000"
+                        },
+                        "month": {
+                            "type":"number",
+                            "defaultValue":"1"
+                        },
+                        "day": {
+                            "type":"number",
+                            "defaultValue":"1"
+                        },
+                        "hour": {
+                            "type":"number",
+                            "defaultValue":"0"
+                        },
+                        "minute": {
+                            "type":"number",
+                            "defaultValue":"0"
+                        },
+                        "second": {
+                            "type":"number",
+                            "defaultValue":"0"
+                        },
+                        "millisecond": {
+                            "type":"number",
+                            "defaultValue":"0"
+                        }
+                    }
+                },
+                {
+                    "opcode":"gettime",
+                    "blockType": "reporter",
+                    "text": "Time in milliseconds",
+                    "arguments": {}
                 }
+                
             ],
             "menus": {
 
@@ -283,10 +325,20 @@ class MoreJS {
     }
     timesincesimple({year,month,day}){
     
-        var a=new Date(year,month,day)
+        var a=new Date(year,month-1,day)
         
         return new Date()-a
     
+    }
+    timesinceadvanced({year,month,day,hour,minute,second,millisecond}){
+    
+        var a=new Date(year,month-1,day,hour,minute,second,millisecond)
+        
+        return new Date()-a
+    
+    }
+    gettime(){
+        return new Date()-0
     }
 
 }
