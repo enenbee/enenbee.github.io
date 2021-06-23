@@ -229,7 +229,7 @@ class MoreJS {
         return window.httpdata
     }
     substringy({string,start,end}){
-        return string.substring(start+1,end+1)
+        return string.substring(start-1,end)
     }
     exactsame({a,b}){
         return a===b
