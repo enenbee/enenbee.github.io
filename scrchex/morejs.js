@@ -204,6 +204,25 @@ class MoreJS {
                             "defaultValue":"Hello world"
                         }
                     }
+                },
+                {
+                    "opcode":"timesincesimple",
+                    "blockType": "reporter",
+                    "text": "Milliseconds since year: [year] month: [month] day: [day]",
+                    "arguments": {
+                        "year": {
+                            "type":"number",
+                            "defaultValue":"2000"
+                        },
+                        "month": {
+                            "type":"number",
+                            "defaultValue":"1"
+                        },
+                        "day": {
+                            "type":"number",
+                            "defaultValue":"1"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -261,6 +280,13 @@ class MoreJS {
     }
     touppercase({string}){
         return string.toUpperCase()
+    }
+    timesincesimple({year,month,day}){
+    
+        var a=new Date(year,month,day)
+        
+        return new Date()-a
+    
     }
 
 }
