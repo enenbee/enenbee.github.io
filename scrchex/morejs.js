@@ -148,6 +148,40 @@ class MoreJS {
                             "defaultValue":"defined"
                         }
                     }
+                },
+                {
+                    "opcode":"substringy",
+                    "blockType": "reporter",
+                    "text": "get letters in [string] from [start] to [end]",
+                    "arguments": {
+                        "string": {
+                            "type":"string",
+                            "defaultValue":"hello world"
+                        },
+                        "start": {
+                            "type":"number",
+                            "defaultValue":"2"
+                        },
+                        "end": {
+                            "type":"number",
+                            "defaultValue":"5"
+                        }
+                    }
+                },
+                {
+                    "opcode":"exactsame",
+                    "blockType": "Boolean",
+                    "text": "are [a] and [b] the exact same?",
+                    "arguments": {
+                        "a": {
+                            "type":"string",
+                            "defaultValue":"Hello world"
+                        },
+                        "b": {
+                            "type":"string",
+                            "defaultValue":"hello world"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -193,6 +227,12 @@ class MoreJS {
         })
 
         return window.httpdata
+    }
+    substringy({string,start,end}){
+        return string.substring(start+1,end+1)
+    }
+    exactsame({a,b}){
+        return a===b
     }
 
 }
