@@ -2,12 +2,27 @@
 //const dom = new jsdom.JSDOM("")
 //const jquery = require('jquery')(dom.window)
 
-class MoreJS_general {
+class MoreJS {
     getInfo() {
         return {
-            "id": "MoreJS_general",
-            "name": "MoreJS General",
+            "id": "MoreJS",
+            "name": "MoreJS",
             "blocks": [
+                {
+                    "opcode":"power",
+                    "blockType": "reporter",
+                    "text": "[num1] ^ [num2]",
+                    "arguments": {
+                        "num1": {
+                            "type":"number",
+                            "defaultValue":"2"
+                        },
+                        "num2": {
+                            "type":"number",
+                            "defaultValue":"8"
+                        }
+                    }
+                },
                 {
                     "opcode":"ifelsethen",
                     "blockType": "reporter",
@@ -34,6 +49,21 @@ class MoreJS_general {
                     "arguments": {}
                 },
                 {
+                    "opcode":"atan2",
+                    "blockType": "reporter",
+                    "text": "atan2 [y] [x]",
+                    "arguments": {
+                        "y": {
+                            "type":"number",
+                            "defaultValue":"9"
+                        },
+                        "x": {
+                            "type":"number",
+                            "defaultValue":"4"
+                        }
+                    }
+                },
+                {
                     "opcode":"script",
                     "blockType": "reporter",
                     "text": "Javascript [code]",
@@ -41,6 +71,21 @@ class MoreJS_general {
                         "code": {
                             "type":"string",
                             "defaultValue":"10/4"
+                        }
+                    }
+                },
+                {
+                    "opcode":"limit",
+                    "blockType": "reporter",
+                    "text": "limit [num] to [dec] decimal points",
+                    "arguments": {
+                        "num": {
+                            "type":"number",
+                            "defaultValue":"74.642"
+                        },
+                        "dec": {
+                            "type":"number",
+                            "defaultValue":"2"
                         }
                     }
                 },
@@ -239,14 +284,23 @@ class MoreJS_general {
             }
         }
     }
+    power({num1,num2}) {
+        return num1**num2
+    }
     ifelsethen({iff,then,eelse}) {
         return iff?then:eelse
     }
     randomfloat() {
       return Math.random()
     }
+    atan2({y,x}){
+        return Math.atan2(y,x) * (180/Math.PI)
+    }
     script({code}){
         return eval(code)
+    }
+    limit({num,dec}){
+        return num.toFixed(dec)
     }
     indexstart({word,sentence,start}){
         return sentence.indexOf(word,start-1)+1
@@ -303,74 +357,4 @@ class MoreJS_general {
     }
 
 }
-class MoreJS_math {
-    getInfo() {
-        return {
-            "id": "MoreJS_math",
-            "name": "MoreJS Math",
-            "blocks": [
-                {
-                    "opcode":"power",
-                    "blockType": "reporter",
-                    "text": "[num1] ^ [num2]",
-                    "arguments": {
-                        "num1": {
-                            "type":"number",
-                            "defaultValue":"2"
-                        },
-                        "num2": {
-                            "type":"number",
-                            "defaultValue":"8"
-                        }
-                    }
-                },
-                {
-                    "opcode":"atan2",
-                    "blockType": "reporter",
-                    "text": "atan2 [y] [x]",
-                    "arguments": {
-                        "y": {
-                            "type":"number",
-                            "defaultValue":"9"
-                        },
-                        "x": {
-                            "type":"number",
-                            "defaultValue":"4"
-                        }
-                    }
-                },
-                {
-                    "opcode":"limit",
-                    "blockType": "reporter",
-                    "text": "limit [num] to [dec] decimal points",
-                    "arguments": {
-                        "num": {
-                            "type":"number",
-                            "defaultValue":"74.642"
-                        },
-                        "dec": {
-                            "type":"number",
-                            "defaultValue":"2"
-                        }
-                    }
-                }
-                
-            ],
-            "menus": {
-
-            }
-        }
-    }
-    power({num1,num2}) {
-        return num1**num2
-    }
-    atan2({y,x}){
-        return Math.atan2(y,x) * (180/Math.PI)
-    }
-    limit({num,dec}){
-        return num.toFixed(dec)
-    }
-
-}
-Scratch.extensions.register(new MoreJS_General())
-Scratch.extensions.register(new MoreJS_Math())
+Scratch.extensions.register(new MoreJS())
