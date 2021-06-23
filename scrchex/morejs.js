@@ -267,7 +267,7 @@ class MoreJS {
                 },
                 {
                     "opcode":"boolhat",
-                    "blockType": "reporter",
+                    "blockType": "hat",
                     "text": "Start if [it]",
                     "arguments": {
                         "it": {
