@@ -182,6 +182,28 @@ class MoreJS {
                             "defaultValue":"hello world"
                         }
                     }
+                },
+                {
+                    "opcode":"tolowercase",
+                    "blockType": "reporter",
+                    "text": "change [string] to lowercase",
+                    "arguments": {
+                        "string": {
+                            "type":"string",
+                            "defaultValue":"Hello world"
+                        }
+                    }
+                },
+                {
+                    "opcode":"touppercase",
+                    "blockType": "reporter",
+                    "text": "change [string] to uppercase",
+                    "arguments": {
+                        "string": {
+                            "type":"string",
+                            "defaultValue":"Hello world"
+                        }
+                    }
                 }
             ],
             "menus": {
@@ -233,6 +255,12 @@ class MoreJS {
     }
     exactsame({a,b}){
         return a===b
+    }
+    tolowercase({string}){
+        return string.toLowerCase()
+    }
+    touppercase({string}){
+        return string.toUpperCase()
     }
 
 }
