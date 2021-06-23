@@ -264,6 +264,18 @@ class MoreJS {
                     "blockType": "reporter",
                     "text": "Time in milliseconds",
                     "arguments": {}
+                },
+                {
+                    "opcode":"boolhat",
+                    "blockType": "reporter",
+                    "text": "Start if [it]",
+                    "arguments": {
+                        "it": {
+                            "type":"Boolean",
+                            "defaultValue":""
+                        }
+                    },
+                    "func":"returnself"
                 }
                 
             ],
@@ -339,6 +351,9 @@ class MoreJS {
     }
     gettime(){
         return new Date()-0
+    }
+    returnself({it}){
+        return it
     }
 
 }
