@@ -307,11 +307,10 @@ class MoreJS {
     isundefined({value}){
         return value==undefined
     }
-    async fetch({urlz}){
-
-        return await fetch(urlz)
+    fetch({urlz}){
+        return fetch(urlz)
     }
-    async scrape({urlz}){
+    scrape({urlz}){
         //from stackoverflow.com/questions/48969495
         return new Promise((resolve,reject)=>{
             var xhr= new XMLHttpRequest()
