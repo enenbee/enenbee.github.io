@@ -1,6 +1,3 @@
-//const jsdom = require('jsdom')
-//const dom = new jsdom.JSDOM("")
-//const jquery = require('jquery')(dom.window)
 
 class MoreJS {
     getInfo() {
@@ -128,9 +125,9 @@ class MoreJS {
                     }
                 },
                 {
-                    "opcode":"gethtml",
+                    "opcode":"fetch",
                     "blockType": "reporter",
-                    "text": "get data from [urlz]",
+                    "text": "fetch from [urlz]",
                     "arguments": {
                         "urlz": {
                             "type":"string",
@@ -264,18 +261,6 @@ class MoreJS {
                     "blockType": "reporter",
                     "text": "Time in milliseconds",
                     "arguments": {}
-                },
-                {
-                    "opcode":"boolhat",
-                    "blockType": "hat",
-                    "text": "Start if [bool]",
-                    "arguments": {
-                        "bool": {
-                            "type":"Boolean",
-                            "defaultValue":""
-                        }
-                    },
-                    "func":"returnself"
                 }
                 
             ],
@@ -311,17 +296,9 @@ class MoreJS {
     isundefined({value}){
         return value==undefined
     }
-    gethtml({urlz}){
-        //code from this dude https://scratch.mit.edu/discuss/topic/277217/
+    async fetch({urlz}){
 
-        $.ajaxSetup({
-            async: false
-        })
-        $.get('https://cors-anywhere.herokuapp.com/'+urlz,(data)=>{
-            window.httpdata=data
-        })
-
-        return window.httpdata
+        return await fetch(urlz)
     }
     substringy({string,start,end}){
         return string.substring(start-1,end)
@@ -351,9 +328,6 @@ class MoreJS {
     }
     gettime(){
         return new Date()-0
-    }
-    boolhat({bool}){
-        return bool
     }
 
 }
