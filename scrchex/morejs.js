@@ -136,6 +136,17 @@ class MoreJS {
                     }
                 },
                 {
+                    "opcode":"scrape",
+                    "blockType": "reporter",
+                    "text": "scrape from [urlz]",
+                    "arguments": {
+                        "urlz": {
+                            "type":"string",
+                            "defaultValue":"www.google.com"
+                        }
+                    }
+                },
+                {
                     "opcode":"isundefined",
                     "blockType": "Boolean",
                     "text": "is [value] undefined",
