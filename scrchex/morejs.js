@@ -268,9 +268,9 @@ class MoreJS {
                 {
                     "opcode":"boolhat",
                     "blockType": "hat",
-                    "text": "Start if [it]",
+                    "text": "Start if [bool]",
                     "arguments": {
-                        "it": {
+                        "bool": {
                             "type":"Boolean",
                             "defaultValue":""
                         }
@@ -352,8 +352,8 @@ class MoreJS {
     gettime(){
         return new Date()-0
     }
-    returnself({it}){
-        return it
+    boolhat({bool}){
+        return bool
     }
 
 }
