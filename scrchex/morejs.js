@@ -131,7 +131,7 @@ class MoreJS {
                     "arguments": {
                         "urlz": {
                             "type":"string",
-                            "defaultValue":"www.google.com"
+                            "defaultValue":"https://v2.jokeapi.dev/joke/Any?safe-mode"
                         }
                     }
                 },
@@ -311,20 +311,14 @@ class MoreJS {
         return fetch(urlz)
     }
     scrape({urlz}){
-        //from stackoverflow.com/questions/48969495
-        return new Promise((resolve,reject)=>{
-            var xhr= new XMLHttpRequest()
-            xhr.open("get",urlz,true)
-            xhr.responseType="document"
-            xhr.onload=()=>{
-                var status=xhr.status
-                if(status==200) {
-                    resolve(xhr.response.documentElement.innerHTML)
-                } else {
-                    reject(status)   
-                }
-            }
-        })
+        var xhr= new XMLHttpRequest()
+        xhr.open("get",urlz,false)
+        xhr.send()
+        if(xhr.status==200) {
+            resolve(xhr.response.documentElement.innerHTML)
+        } else {
+            reject(status)   
+        }
         
     }
     substringy({string,start,end}){
