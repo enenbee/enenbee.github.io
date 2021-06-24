@@ -300,6 +300,23 @@ class MoreJS {
 
         return await fetch(urlz)
     }
+    async scrape({urlz}){
+        //from stackoverflow.com/questions/48969495
+        return new Promise((resolve,reject)=>{
+            var xhr= new XMLHttpRequest()
+            xhr.open("get",urlz,true)
+            xhr.responseType="document"
+            xhr.onload=()=>{
+                var status=xhr.status
+                if(status==200) {
+                    resolve(xhr.response.documentElement.innerHTML)
+                } else {
+                    reject(status)   
+                }
+            }
+        })
+        
+    }
     substringy({string,start,end}){
         return string.substring(start-1,end)
     }
