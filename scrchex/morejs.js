@@ -142,7 +142,7 @@ class MoreJS {
                     "arguments": {
                         "urlz": {
                             "type":"string",
-                            "defaultValue":"www.google.com"
+                            "defaultValue":"https://www.google.com"
                         }
                     }
                 },
