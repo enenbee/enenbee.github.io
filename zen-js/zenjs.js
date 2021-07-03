@@ -321,6 +321,10 @@ function dragcameracenter(div){
     _camera=[_camera[0]+(dst[0]/div),_camera[1]+(dst[1]/div)]
 }
 
+function getcamerashift(){
+    return [c.width/2,c.height/2]
+}
+
 //other
 
 function playAudio(src){
