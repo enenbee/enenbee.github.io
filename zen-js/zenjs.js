@@ -298,6 +298,10 @@ function m_norm(x,y){
     return d==0?[0,0]:[x/d,y/d]
 }
 
+function m_average(array){
+    return array.reduce((t,v)=>t+v)/array.length
+}
+
 
 //camera
 
@@ -330,12 +334,10 @@ function getcamerashift(){
 function playAudio(src){
 
     /*
-
     to load and play audio at different times
     use new Audio([src])
     and
     [variable].play()
-
     */
 
     var a=new Audio(src)
