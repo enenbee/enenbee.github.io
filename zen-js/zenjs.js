@@ -2,7 +2,7 @@
 
 
 /********************/
-//collision - collision.js
+//collision
 /********************/
 
 
@@ -38,7 +38,7 @@ function lineBox(x1,y1,x2,y2,[x,y,w,h]){
 
 
 /********************/
-//controller - controller.js
+//controller
 /********************/
 
 
@@ -61,7 +61,7 @@ function getGamepad(id){
 
 
 /********************/
-//main - script.js
+//main
 /********************/
 
 
@@ -84,12 +84,15 @@ b.onmousemove=(e)=>{
 b.onmousedown=()=>{mdown=true}
 b.onmouseup=()=>{mdown=false}
 
+changed={}
 keys={}
 
 b.onkeydown=(e)=>{
+    changed[e.key]=true
     keys[e.key]=true
 }
 b.onkeyup=(e)=>{
+    changed[e.key]=true
     keys[e.key]=false
 }
 
@@ -127,6 +130,7 @@ setInterval(()=>{
         ctx.translate(-_camera[0],-_camera[1])
         frame[_i](_frame)
     }
+    changed={}
 },50/3)
 
 // functions for me
@@ -183,6 +187,18 @@ function key(code){
     } else {
         return keys[code]
     }
+}
+
+function changedkey(code){
+    if(changed[code]==undefined){
+        return false
+    } else {
+        return changed[code]
+    }
+}
+
+function justpressed(code){
+    return key(code)&&changedkey(code)
 }
 
 function getMouse(){
