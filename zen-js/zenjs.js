@@ -329,6 +329,10 @@ function getcamerashift(){
     return [c.width/2,c.height/2]
 }
 
+function offCamera(px,py){
+    return pointBox(px,py,[_camera[0],_camera[1],c.width,c.height])
+}
+
 //other
 
 function playAudio(src){
