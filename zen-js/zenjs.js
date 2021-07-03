@@ -1,5 +1,3 @@
-// last updated: MM/DD/YYYY  07/02/2021
-
 
 /********************/
 //collision
