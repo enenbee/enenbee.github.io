@@ -1,4 +1,4 @@
-_base100code="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~`!@#$%^&*()-_=+[{]}\|;:'\",<.>/?€ƒ„…†‡Š"
+_base100code="0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz~`!@#$%^&*()-_=+[{]}\;:'\",<.>/?€ƒ„…†‡ŠŒ"
 
 function base100encode(number){
     var n=""+number
