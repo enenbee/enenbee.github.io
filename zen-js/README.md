@@ -1,0 +1,23 @@
+This is a very WIP game library
+
+To get this to work you need:
+ * A canvas with the id of "canv"
+ * A script placed after the canvas with the src of https://enenbee.github.io/zen-js/zenjs.js or the files it's a part of
+ 
+ 
+ Example project:
+ 
+```<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://enenbee.github.io/zen-js/style.css">
+    <title>ZenJS Game</title>
+</head>
+<body>
+    <canvas id="canv" width="800" height="450"></canvas>
+    <script src="https://enenbee.github.io/zen-js/zenjs.js"></script>
+    <script src="project.js"></script>
+</body>
+</html>
