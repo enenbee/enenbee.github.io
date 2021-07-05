@@ -334,6 +334,10 @@ function offCamera(px,py){
 
 //other
 
+function pixelAt(x,y){
+    return ctx.getImageData(x,y,1,1).data
+}
+
 function playAudio(src){
 
     /*
