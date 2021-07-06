@@ -87,6 +87,11 @@ changed={}
 keys={}
 
 b.onkeydown=(e)=>{
+    
+    if(_ti){
+        _textinput+=e.key
+    }
+    
     changed[e.key]=true
     keys[e.key]=true
 }
@@ -349,4 +354,18 @@ function playAudio(src){
 
     var a=new Audio(src)
     a.oncanplay=()=>{a.play()}
+}
+
+_ti=false
+_textinput=""
+
+function ti_start(){
+    _textinput=""
+    _ti=true
+}
+function ti_end(){
+    _ti=false
+}
+function get_ti(){
+    return _textinput
 }
