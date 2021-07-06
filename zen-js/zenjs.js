@@ -89,7 +89,11 @@ keys={}
 b.onkeydown=(e)=>{
     
     if(_ti){
-        _textinput+=e.key
+        if(e.key=="Backspace"){
+            _textinput=_textinput.slice(-1)
+        } else {
+            _textinput+=e.key
+        }
     }
     
     changed[e.key]=true
