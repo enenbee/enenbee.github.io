@@ -91,7 +91,7 @@ b.onkeydown=(e)=>{
     if(_ti){
         if(e.key=="Backspace"){
             _textinput=_textinput.slice(0,_textinput.length-1)
-        } else {
+        } else if(e.key!="Shift"&&e.key!="Control") {
             _textinput+=e.key
         }
     }
