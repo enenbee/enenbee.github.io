@@ -90,7 +90,7 @@ b.onkeydown=(e)=>{
     
     if(_ti){
         if(e.key=="Backspace"){
-            _textinput=_textinput.slice(-1)
+            _textinput=_textinput.slice(0,_textinput.length-1)
         } else {
             _textinput+=e.key
         }
