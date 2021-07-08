@@ -164,7 +164,8 @@ loadedpercent=[0,0]
 imagepath=""
 
 function getImage(src){
-    var i = new Image().src = `${imagepath}${src}.png`
+    var i = new Image()
+    i.src = `${imagepath}${src}.png`
     loadedpercent[1]++
     i.onload=()=>{loadedpercent[0]++}
     return i
@@ -317,7 +318,7 @@ function dragcameracenter(div){
 
 getcamerashift=()=>[c.width/2,c.height/2]
 
-offCamera(px,py)=>pointBox(px,py,[_camera[0],_camera[1],c.width,c.height])
+offCamera=(px,py)=>pointBox(px,py,[_camera[0],_camera[1],c.width,c.height])
 
 
 //other
