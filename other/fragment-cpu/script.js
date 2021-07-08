@@ -18,7 +18,11 @@ function comp(){
         document.getElementsByTagName("textarea")[0].value
     }}`)
 
-    fast()
+    if(document.getElementById("fast").checked){
+        fast()
+    } else {
+        slow()
+    }
 
 }
 
