@@ -45,7 +45,7 @@ function fast(){
 
             var w=new Worker("worker.js")
 
-            w.postMessage(xx,yy)
+            w.postMessage([xx,yy])
         
             w.onmessage=(e)=>{
                 ctx.fillStyle=`rgb(${e.data[0]},${e.data[1]},${e.data[2]})`
