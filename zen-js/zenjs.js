@@ -166,13 +166,11 @@ loadedpercent=[0,0]
 imagepath=""
 
 function getImage(src){
+    var i = new Image().src = `${imagepath}${src}.png`
     loadedpercent[1]++
-    var i = new Image()
-    i.src = `${imagepath}${src}.png`
     i.onload=()=>{loadedpercent[0]++}
     return i
 }
-
 
 
 font_family="sans-serif"
@@ -216,7 +214,7 @@ function getMouse(){
 //gamepad
 
 function gp_connected(gp){
-    return getGamepad(gp)!=null
+    return controlon[gp]
 }
 
 function gp_axes(gp,axis){
@@ -290,24 +288,14 @@ function d_rotimage(img,x,y,rot,px,py){
 
 //math
 
-function m_radians(degrees){
-    return degrees*Math.PI/180
-}
-function m_degrees(radians){
-    return radians*180/Math.PI
-}
-
-function m_dist(x,y){
-    return Math.sqrt(x*x+y*y)
-}
+m_radians=(degrees)=>degrees*Math.PI/180
+m_degrees=(radians)=>radians*180/Math.PI
+m_dist=(x,y)=>Math.sqrt(x*x+y*y)
+m_average=array=>array.reduce((t,v)=>t+v)/array.length
 
 function m_norm(x,y){
     var d=m_dist(x,y)
     return d==0?[0,0]:[x/d,y/d]
-}
-
-function m_average(array){
-    return array.reduce((t,v)=>t+v)/array.length
 }
 
 
