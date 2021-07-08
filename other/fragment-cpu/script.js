@@ -47,10 +47,10 @@ function fast(){
         w.postMessage([xx,size,`fragment=function(x,y){${document.getElementsByTagName("textarea")[0].value}}`])
 
         w.onmessage=(e)=>{
+            console.log(e.data)
             for(var yy=0;yy<size;yy++){
                 ctx.fillStyle=`rgb(${e.data[(yy*3+1)+0]},${e.data[(yy*3+1)+1]},${e.data[(yy*3+1)+2]})`
                 ctx.fillRect(e.data[0],yy,1,1)
-                console.log(e.data[0],yy,(yy*3+1)+0,(yy*3+1)+1,(yy*3+1)+2)
             }
         }
 
