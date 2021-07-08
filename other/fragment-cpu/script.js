@@ -44,12 +44,12 @@ function fast(){
 
         var w=new Worker("worker.js")
 
-        w.postMessage([xx,size,fragment])
+        w.postMessage([xx,size,`fragment=function(x,y){${document.getElementsByTagName("textarea")[0].value}}`])
 
         w.onmessage=(e)=>{
             for(var yy=0;yy<size;yy++){
-                ctx.fillStyle=`rgb(${e.data[(yy*3)+0]},${(yy*3)+e.data[1]},${(yy*3)+e.data[2]})`
-                ctx.fillRect(xx,yy,1,1)
+                ctx.fillStyle=`rgb(${e.data[(yy*3+2)+0]},${e.data[(yy*3+2)+1]},${e.data[(yy*3+2)+2]})`
+                ctx.fillRect(xx,yy,e.data[0],e.data[1])
             
             }
         }
