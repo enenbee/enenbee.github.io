@@ -13,4 +13,5 @@ onmessage=(e)=>{
     }
     
     postMessage(out)
+    self.terminate()
 }
