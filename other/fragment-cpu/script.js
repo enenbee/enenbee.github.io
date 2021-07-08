@@ -41,18 +41,19 @@ function slow(){
 function fast(){
 
     for(var xx=0;xx<size;xx++){
-        for(var yy=0;yy<size;yy++){
 
-            var w=new Worker("worker.js")
+        var w=new Worker("worker.js")
 
-            w.postMessage([xx,yy])
-        
-            w.onmessage=(e)=>{
-                ctx.fillStyle=`rgb(${e.data[0]},${e.data[1]},${e.data[2]})`
+        w.postMessage(xx)
+
+        w.onmessage=(e)=>{
+            for(var yy=0;yy<size;yy++){
+                ctx.fillStyle=`rgb(${e.data[(yy*3)+0]},${(yy*3)+e.data[1]},${(yy*3)+e.data[2]})`
                 ctx.fillRect(xx,yy,1,1)
+            
             }
-
         }
+
     }
 
 }
