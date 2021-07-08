@@ -44,7 +44,7 @@ function fast(){
 
         var w=new Worker("worker.js")
 
-        w.postMessage(xx)
+        w.postMessage([xx,size,fragment])
 
         w.onmessage=(e)=>{
             for(var yy=0;yy<size;yy++){
