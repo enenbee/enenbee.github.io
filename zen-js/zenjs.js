@@ -20,10 +20,8 @@ function boxes([x1,y1,w1,h1],[x2,y2,w2,h2]){
             y1+h1>y2
 }
 
-function pointBox(px,py,[x,y,w,h]){
-    return x<=px&&px<=x+w&&
-            y<=py&&py<=y+h
-}
+pointBox=(px,py,[x,y,w,h])=>x<=px&&px<=x+w&&y<=py&&py<=y+h
+
 
 function lineBox(x1,y1,x2,y2,[x,y,w,h]){
 
@@ -212,10 +210,8 @@ function getMouse(){
 }
 
 //gamepad
+gp_connected=(gp)=>controlon[gp]
 
-function gp_connected(gp){
-    return controlon[gp]
-}
 
 function gp_axes(gp,axis){
     var g=getGamepad(gp)
@@ -232,10 +228,8 @@ function gp_button(gp,btn){
 function gp_vibrate(gp,dur,strong,weak){
     getGamepad(gp).vibrationActuator.playEffect("dual-rumble",{duration:dur,strongMagnitude:strong,weakMagnitude:weak})
 }
+deadzone=(value,deadzone)=>Math.abs(value)<deadzone?0:value
 
-function deadzone(value,deadzone){
-    return Math.abs(value)<deadzone?0:value
-}
 
 //drawing
 
@@ -288,8 +282,8 @@ function d_rotimage(img,x,y,rot,px,py){
 
 //math
 
-m_radians=(degrees)=>degrees*Math.PI/180
-m_degrees=(radians)=>radians*180/Math.PI
+m_radians=degrees=>degrees*Math.PI/180
+m_degrees=radians=>radians*180/Math.PI
 m_dist=(x,y)=>Math.sqrt(x*x+y*y)
 m_average=array=>array.reduce((t,v)=>t+v)/array.length
 
@@ -321,19 +315,15 @@ function dragcameracenter(div){
     _camera=[_camera[0]+(dst[0]/div),_camera[1]+(dst[1]/div)]
 }
 
-function getcamerashift(){
-    return [c.width/2,c.height/2]
-}
+getcamerashift=()=>[c.width/2,c.height/2]
 
-function offCamera(px,py){
-    return pointBox(px,py,[_camera[0],_camera[1],c.width,c.height])
-}
+offCamera(px,py)=>pointBox(px,py,[_camera[0],_camera[1],c.width,c.height])
+
 
 //other
 
-function pixelAt(x,y){
-    return ctx.getImageData(x,y,1,1).data
-}
+pixelAt=(x,y)=>ctx.getImageData(x,y,1,1).data
+
 
 function playAudio(src){
 
@@ -358,6 +348,4 @@ function ti_start(){
 function ti_end(){
     _ti=false
 }
-function get_ti(){
-    return _textinput
-}
+get_ti=()=>_textinput
