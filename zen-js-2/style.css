@@ -1,0 +1,15 @@
+body {
+    font-family: sans-serif;
+    background-color: #212943;
+    color: #d6f3d7;
+}
+canvas {
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin:auto;
+    border: 7pt solid #1e21a1;
+    border-radius: 8pt 8pt 0pt 0pt;
+}
