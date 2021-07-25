@@ -112,12 +112,27 @@ null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 keymode="new"//set it to old to use e.key instead of e.keyCode
 
 b.onkeydown=(e)=>{
-    changed[keynames[e.key]]=true
-    keys[keynames[e.key]]=true
+    
+    if(keymode=="new"){
+        var key=keynames[e.keyCode]
+    } else {
+        var key=e.key
+    }
+    
+    changed[key]=true
+    keys[key]=true
 }
 b.onkeyup=(e)=>{
-    changed[keynames[e.key]]=true
-    keys[keynames[e.key]]=false
+    
+    if(keymode=="new"){
+        var key=keynames[e.keyCode]
+    } else {
+        var key=e.key
+    }
+    
+    changed[key]=true
+    keys[key]=false
+    
 }
 
 _frame=0
