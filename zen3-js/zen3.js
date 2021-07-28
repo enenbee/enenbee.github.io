@@ -20,8 +20,8 @@ function makeCamera(_fov,_near,_far){
     return new THREE.PerspectiveCamera(fov,res[0]/res[1],near,far)
 }
 
-function makeRenderer(){
-    var out=new THREE.WebGLRenderer()
+function makeRenderer(aa){
+    var out=new THREE.WebGLRenderer({antialiasing:(aa!=undefined&&aa)})
     out.setSize(res[0],res[1])
     out.shadowMap.enabled=true
     out.shadowMap.type=THREE.BasicShadowMap
