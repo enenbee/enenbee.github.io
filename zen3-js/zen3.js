@@ -25,6 +25,8 @@ function makeRenderer(){
     out.setSize(res[0],res[1])
     out.shadowMap.enabled=true
     out.shadowMap.type=THREE.BasicShadowMap
+    
+    return out
 }
 
 function litObject(shape,material,rec){
