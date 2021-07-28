@@ -1,0 +1,131 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doodle.JS</title>
+    <link rel="icon" href="icon.png">
+    <style>
+
+        body {
+            margin: 0;
+        }
+
+        #prevdiv {
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            top: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        #search {
+
+            background-color: transparent;
+            border: none;
+            margin: 0;
+            color: #000E;
+            outline: none;
+            height: 30pt;
+            width: 400pt;
+            font-size: 16px;
+            border-radius: 15pt;
+            
+
+
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            top: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            box-shadow: 0 0 15pt #777;
+
+        }
+        #preview {
+
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            top: 50%;
+            top: -160;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+        }
+
+
+        canvas {
+            image-rendering: -moz-crisp-edges;
+            image-rendering: -webkit-crisp-edges;
+            image-rendering: pixelated;
+            image-rendering: crisp-edges;
+        }
+
+        #gamecontain {
+
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            background-color: #0005;
+            backdrop-filter: blur(3pt);
+        }
+
+        #game {
+
+            position: absolute;
+            left: 50%;
+            right: 50%;
+            top: 50%;
+            -ms-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+        }
+
+        #engine {
+            font-family:sans-serif;
+            position: absolute;
+            width:100pt;
+            top:40pt;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <input type="file" id="ingame">
+
+    <div id="prevdiv">
+        <canvas width="384" height="206" id="preview"></canvas>
+        <form id="mainform">
+            <input type="text" id="search" name="search">
+        </form>
+
+
+        <div id="engine">
+            <label>Search engine:
+                <select onchange="searchengine=this.value;localStorage.setItem('doodle-engine',searchengine)">
+                    <option disabled="true" selected>Default</option>
+                    <option value="google">Google</option>
+                    <option value="google">Doodle (WIP)</option>
+                    <option value="bing">Bing</option>
+                    <option value="ecosia">Ecosia</option>
+                </select>
+            </label>
+        </div>
+    </div>
+
+    <div id="gamecontain" hidden>
+        <canvas id="game" width="960" height="540"></canvas>
+    </div>
+
+    
+
+    <script src="doodle.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
