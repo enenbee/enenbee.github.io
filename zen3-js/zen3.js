@@ -77,3 +77,14 @@ function pointLight(pos,_color,_bright,_near,_far){
     
 }
 
+//materials
+
+function litMaterial(_color){
+
+    var color=_color
+    if(color==undefined)color=0xffffff
+    
+    return new THREE.MeshPhongMaterial({color,wireframe:false})
+
+}
+
