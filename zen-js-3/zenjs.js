@@ -278,14 +278,17 @@ function d_clear(att){
     color - color
     ctx - Canvas context
     */
-    var tmp=(att.ctx||ctx).getTransform()
+    
+    cctx=(att.ctx||ctx)
+    
+    var tmp=cctx.getTransform()
 
-    (att.ctx||ctx).resetTransform()
+    cctxresetTransform()
 
-    (att.ctx||ctx).fillStyle=att.color||"#FFF"
-    (att.ctx||ctx).fillRect(0,0,(att.ctx.canvas||c).width,(att.ctx.canvas||c).height)
+    cctx.fillStyle=att.color||"#FFF"
+    cctx.fillRect(0,0,(att.ctx.canvas||c).width,(att.ctx.canvas||c).height)
 
-    (att.ctx||ctx).setTransform(tmp)
+    cctx.setTransform(tmp)
 }
 
 function d_text(text,x,y,color){
