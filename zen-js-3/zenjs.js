@@ -283,7 +283,7 @@ function d_clear(att){
     
     var tmp=cctx.getTransform()
 
-    cctxresetTransform()
+    cctx.resetTransform()
 
     cctx.fillStyle=att.color||"#FFF"
     cctx.fillRect(0,0,(att.ctx.canvas||c).width,(att.ctx.canvas||c).height)
