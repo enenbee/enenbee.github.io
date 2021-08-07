@@ -148,7 +148,7 @@ function fram(){
     for(var _i=0;_i<fi;_i++){
         ctx.resetTransform()
         ctx.translate(-_camera[0],-_camera[1])
-        ctx.scale(_detail)
+        ctx.scale(_detail,_detail)
         frame[_i](_frame)
     }
     changed={}
@@ -376,7 +376,7 @@ function m_average(array){
 function useCamera(canvctx,cam){
     (canvctx||ctx).resetTransform()
     (canvctx||ctx).translate(-cam[0],-cam[1])
-    (canvctx||ctx).scale(_detail)
+    (canvctx||ctx).scale(_detail,_detail)
 }
 
 _camera=[0,0]
