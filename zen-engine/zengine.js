@@ -299,11 +299,11 @@ function d_line(x1,y1,x2,y2,color){
 
     var cctx=(att.ctx||ctx)
 
-    (att.ctx||ctx).strokeStyle=att.color||"#FFF"
-    (att.ctx||ctx).beginPath()
-    (att.ctx||ctx).moveTo(x1,y1)
-    (att.ctx||ctx).lineTo(x2,y2)
-    (att.ctx||ctx).stroke()
+    cctx.strokeStyle=att.color||"#FFF"
+    cctx.beginPath()
+    cctx.moveTo(x1,y1)
+    cctx.lineTo(x2,y2)
+    cctx.stroke()
 }
 
 function d_image(img,x,y,att){
@@ -326,9 +326,9 @@ function d_image(img,x,y,att){
     cctx.rotate(att.rot||0)
 
     if(att.height==undefined){
-        (att.ctx||ctx).drawImage(img,-(att.rotx||0),-(att.roty||0))
+        cctx.drawImage(img,-(att.rotx||0),-(att.roty||0))
     } else {
-        (att.ctx||ctx).drawImage(img,-(att.rotx||0),-(att.roty||0),att.width,att.height)
+        cctx.drawImage(img,-(att.rotx||0),-(att.roty||0),att.width,att.height)
     }
 
     cctx.setTransform(tmp)
@@ -361,9 +361,12 @@ function m_average(array){
 //camera
 
 function useCamera(canvctx,cam){
-    (canvctx||ctx).resetTransform()
-    (canvctx||ctx).translate(-cam[0],-cam[1])
-    (canvctx||ctx).scale(_detail)
+
+    var cctx=(canvctx||ctx)
+
+    cctx.resetTransform()
+    cctx.translate(-cam[0],-cam[1])
+    cctx.scale(_detail,_detail)
 }
 
 _camera=[0,0]
@@ -375,6 +378,7 @@ function movecamera(x,y,cam){
         cam[0]+=x
         cam[1]+=y    
     }
+    useCamera(ctx,_camera)
 }
 function setcamera(x,y,cam,canv){
     if(cam==undefined){
@@ -382,6 +386,7 @@ function setcamera(x,y,cam,canv){
     } else {
         cam=[x-(canv||c).width/2,y-(canv||c).height/2]
     }
+    useCamera(ctx,_camera)
 }
 function dragcamera(x,y,div,cam,canv){
 
@@ -420,7 +425,7 @@ function dragcamera(x,y,div,cam,canv){
             cm[1]-(canv||c).height/2
         ]
     }
-
+    useCamera(ctx,_camera)
     //will improve later
 
 }
@@ -433,6 +438,7 @@ function dragcameracenter(div,cam){
         var dst=[-cam[0],-cam[1]]
         _camera=[cam[0]+(dst[0]/div),cam[1]+(dst[1]/div)]
     }
+    useCamera(ctx,_camera)
 }
 
 function getcamerashift(canv){
