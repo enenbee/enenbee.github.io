@@ -3,7 +3,7 @@ c.width=ratio[0]
 c.height=ratio[1]
 b.appendChild(c)
 
-_f = window.requestAnimationFrame(()=>{
+_f = setInterval(()=>{
     _frame++
 
     ctx.resetTransform()
@@ -17,4 +17,4 @@ _f = window.requestAnimationFrame(()=>{
     Frame()
 
     changed={}
-})
+},1000/60)
