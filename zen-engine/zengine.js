@@ -277,36 +277,38 @@ function d_text(text,x,y,attt){
     cctx.fillText(text,x,y+(font_size/1))
 }
 
-function d_rect(x,y,w,h,color){
+function d_rect(x,y,w,h,color,attt){
     /*
     Attributes:
-    color - color
     ctx - Canvas context
     */
+    
+    var att=attt||{}
 
     var cctx=(att.ctx||ctx)
 
-    cctx.fillStyle=att.color||"#FFF"
+    cctx.fillStyle=color
     cctx.fillRect(x,y,w,h)
 }
 
-function d_line(x1,y1,x2,y2,color){
+function d_line(x1,y1,x2,y2,color,attt){
     /*
     Attributes:
-    color - color
     ctx - Canvas context
     */
+    
+    var att=attt||{}
 
     var cctx=(att.ctx||ctx)
 
-    cctx.strokeStyle=att.color||"#FFF"
+    cctx.strokeStyle=color
     cctx.beginPath()
     cctx.moveTo(x1,y1)
     cctx.lineTo(x2,y2)
     cctx.stroke()
 }
 
-function d_image(img,x,y,att){
+function d_image(img,x,y,attt){
     /*
     Attributes:
     ctx - Canvas context
@@ -316,6 +318,8 @@ function d_image(img,x,y,att){
         rotx - rotation point x
         roty - rotation point y
     */
+    
+    var att=attt||{}
 
     var cctx=(att.ctx||ctx)
 
