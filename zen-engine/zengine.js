@@ -139,11 +139,7 @@ b.onkeyup=(e)=>{
     
 }
 
-_frame=0
-
-_fps=60
-
-_detail=1//scales up display only, not the canvas itself
+_detail=1
 
 
 
@@ -385,19 +381,22 @@ function movecamera(x,y,cam){
     useCamera(ctx,_camera)
 }
 function setcamera(x,y,cam,canv){
+    var cc=(canv||c)
     if(cam==undefined){
-        _camera=[x-(canv||c).width/2,y-(canv||c).height/2]
+        _camera=[x-cc.width/2,y-cc.height/2]
     } else {
-        cam=[x-(canv||c).width/2,y-(canv||c).height/2]
+        cam=[x-cc.width/2,y-cc.height/2]
     }
     useCamera(ctx,_camera)
 }
 function dragcamera(x,y,div,cam,canv){
+    
+    var cc=(canv||c)
 
     if(cam==undefined){
         var cm=[
-            _camera[0]+(canv||c).width/2,
-            _camera[1]+(canv||c).height/2
+            _camera[0]+cc.width/2,
+            _camera[1]+cc.height/2
         ]
         var dst=[
             x-cm[0],
@@ -408,13 +407,13 @@ function dragcamera(x,y,div,cam,canv){
             cm[1]+(dst[1]/div)
         ]
         _camera=[
-            cm[0]-(canv||c).width/2,
-            cm[1]-(canv||c).height/2
+            cm[0]-cc.width/2,
+            cm[1]-cc.height/2
         ]
     } else {
         var cm=[
-            cam[0]+(canv||c).width/2,
-            cam[1]+(canv||c).height/2
+            cam[0]+cc.width/2,
+            cam[1]+cc.height/2
         ]
         var dst=[
             x-cm[0],
@@ -425,8 +424,8 @@ function dragcamera(x,y,div,cam,canv){
             cm[1]+(dst[1]/div)
         ]
         cam=[
-            cm[0]-(canv||c).width/2,
-            cm[1]-(canv||c).height/2
+            cm[0]-cc.width/2,
+            cm[1]-cc.height/2
         ]
     }
     useCamera(ctx,_camera)
@@ -446,7 +445,8 @@ function dragcameracenter(div,cam){
 }
 
 function getcamerashift(canv){
-    return [(canv||c).width/2,(canv||c).height/2]
+    var cc=(canv||c)
+    return [cc.width/2,cc.height/2]
 }
 
 function offCamera(px,py,cam,canv){
