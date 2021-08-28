@@ -480,6 +480,12 @@ class Vector3 {
         this.z=z
     }
 }
+class Vector2 {
+    constructor(x,y){
+        this.x=x
+        this.y=y
+    }
+}
 
 Vector={
     Add:(a,b)=>{
@@ -488,6 +494,7 @@ Vector={
             return new Vector3(a.x+b.x,a.y+b.y,a.z+b.z)
         } else {
             //Vector2
+            return new Vector2(a.x+b.x,a.y+b.y)
         }
     }
 }
