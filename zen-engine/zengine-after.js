@@ -4,9 +4,7 @@ c.height=ratio[1]
 b.appendChild(c)
 
 _f = setInterval(()=>{
-    ctx.resetTransform()
-    ctx.translate(-_camera[0],-_camera[1])
-    ctx.scale(_detail,_detail)
+    useCamera(ctx,_camera)
 
     c.width=ratio[0]*_detail
     c.height=ratio[1]*_detail
