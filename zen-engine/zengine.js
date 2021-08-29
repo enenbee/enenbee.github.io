@@ -494,13 +494,13 @@ function phys_simple(obj,coll,velkeep,gravity,bounce){
     if(obj.vx==undefined) obj.vx=0
     if(obj.vy==undefined) obj.vy=0
     
-    if(!coll(obj.x+obj.vx,obj.y)){
+    if(!coll(obj.x+obj.vx,obj.y,obj)){
         obj.x+=obj.vx
     } else {
         obj.vx*=-bounce||phys_bounce   
     }
     
-    if(!coll(obj.x,obj.y+obj.vy)){
+    if(!coll(obj.x,obj.y+obj.vy,obj)){
         obj.y+=obj.vy
     } else {
         obj.vy*=-bounce||phys_bounce   
