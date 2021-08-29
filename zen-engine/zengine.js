@@ -287,6 +287,22 @@ function d_rect(x,y,w,h,color,attt){
     cctx.fillRect(x,y,w,h)
 }
 
+function d_circle(x,y,r,color,attt){
+    /*
+    Attributes:
+    ctx - Canvas context
+    */
+    
+    var att=attt||{}
+
+    var cctx=(att.ctx||ctx)
+
+    cctx.beginPath()
+    cctx.fillStyle=color
+    ctx.arc(x,y,r,0,Math.PI*2,false)
+    ctx.fill()
+}
+
 function d_line(x1,y1,x2,y2,color,attt){
     /*
     Attributes:
@@ -355,6 +371,13 @@ function m_norm(x,y){
 
 function m_average(array){
     return array.reduce((t,v)=>t+v)/array.length
+}
+
+function m_bezier2(p1,p2,t){
+    return [
+        p1[0]+t*(p2[0]-p1[0]),
+        p1[1]+t*(p2[1]-p1[1])
+    ]
 }
 
 
