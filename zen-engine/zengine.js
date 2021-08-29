@@ -478,7 +478,7 @@ function offCamera(px,py,cam,canv){
 
 //physics
 
-phys_gravity=1
+phys_gravity=[0,1]
 phys_velkeep=0.96
 phys_bounce=0
 
@@ -501,7 +501,8 @@ function phys_simple(obj,coll,velkeep,gravity,bounce){
     
     obj.vx*=velkeep||phys_velkeep
     obj.vy*=velkeep||phys_velkeep
-    obj.vy+=gravity||phys_gravity
+    obj.vx+=gravity[0]||phys_gravity[0]
+    obj.vy+=gravity[1]||phys_gravity[1]
 
 }
 
