@@ -37,6 +37,13 @@ function lineBox(x1,y1,x2,y2,[x,y,w,h]){
 
 }
 
+function pointCircle(px,py,{x,y,r}){
+    return m_dist(px-x,py-y)<r
+}
+function circles(px,py,c1,c2){
+    return m_dist(c1.x-c2.x,c1.y-c2.y)<(c1.r+c2.r)
+}
+
 
 /********************/
 //controller
