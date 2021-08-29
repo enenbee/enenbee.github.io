@@ -522,3 +522,23 @@ Vector={
     }
 }
 
+
+phys_gravity=1
+phys_velkeep=0.96
+
+function phys_simple(obj,velkeep,gravity){
+
+    if(obj.vx==undefined) obj.vx=0
+    if(obj.vy==undefined) obj.vy=0
+    
+    obj.x+=obj.vx
+    obj.y+=obj.vy
+    
+    obj.vx*=velkeep||phys_velkeep
+    obj.vy*=velkeep||phys_velkeep
+    obj.vy+=gravity||phys_gravity
+
+}
+
+
+
