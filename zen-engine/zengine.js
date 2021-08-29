@@ -213,6 +213,41 @@ function getMouse(){
     return {x:mx,y:my,down:mdown}
 }
 
+function getAxis(type){//will add controller input at some point
+    switch(type){
+        case "Horizontal":
+            var dat=key("d")+key("ArrowRight")-key("a")-key("ArrowLeft")
+            dat = Math.max(Math.min(dat,1),0)
+            dat = Math.round(dat*20)/20
+            return dat
+        case "Vertical":
+            var dat=key("s")+key("ArrowDown")-key("w")-key("ArrowUp")
+            dat = Math.max(Math.min(dat,1),0)
+            dat = Math.round(dat*20)/20
+            return dat
+        case "Mouse X"://thse are useless but i just wanted to make a unity reference
+            return mx
+        case "Mouse Y":
+            return my
+    }
+}
+function getAxisRaw(type){
+    switch(type){
+        case "Horizontal":
+            var dat=key("d")+key("ArrowRight")-key("a")-key("ArrowLeft")
+            dat = Math.max(Math.min(dat,1),0)
+            return dat
+        case "Vertical":
+            var dat=key("s")+key("ArrowDown")-key("w")-key("ArrowUp")
+            dat = Math.max(Math.min(dat,1),0)
+            return dat
+        case "Mouse X":
+            return mx
+        case "Mouse Y":
+            return my
+    }
+}
+
 //gamepad
 
 function gp_connected(gp){
