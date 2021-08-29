@@ -476,6 +476,35 @@ function offCamera(px,py,cam,canv){
     return pointBox(px,py,[(cam||_camera)[0],(cam||_camera)[1],(canv||c).width,(canv||c).height])
 }
 
+//physics
+
+phys_gravity=1
+phys_velkeep=0.96
+phys_bounce=0
+
+function phys_simple(obj,coll,velkeep,gravity,bounce){
+
+    if(obj.vx==undefined) obj.vx=0
+    if(obj.vy==undefined) obj.vy=0
+    
+    if(!coll(obj.x+obj.vx,obj.y)){
+        obj.x+=obj.vx
+    } else {
+        obj.vx*=-bounce||phys_bounce   
+    }
+    
+    if(!coll(obj.x,obj.y+obj.vy)){
+        obj.y+=obj.vy
+    } else {
+        obj.vy*=-bounce||phys_bounce   
+    }
+    
+    obj.vx*=velkeep||phys_velkeep
+    obj.vy*=velkeep||phys_velkeep
+    obj.vy+=gravity||phys_gravity
+
+}
+
 //other
 
 function playAudio(src){
@@ -523,22 +552,7 @@ Vector={
 }
 
 
-phys_gravity=1
-phys_velkeep=0.96
 
-function phys_simple(obj,velkeep,gravity){
-
-    if(obj.vx==undefined) obj.vx=0
-    if(obj.vy==undefined) obj.vy=0
-    
-    obj.x+=obj.vx
-    obj.y+=obj.vy
-    
-    obj.vx*=velkeep||phys_velkeep
-    obj.vy*=velkeep||phys_velkeep
-    obj.vy+=gravity||phys_gravity
-
-}
 
 
 
