@@ -219,13 +219,11 @@ function axis(type){//will add controller input at some point
         case "horizontal":
             var dat=key("d")+key("ArrowRight")-key("a")-key("ArrowLeft")
             dat = Math.max(Math.min(dat,1),0)
-            dat = Math.round(dat*20)/20
             return dat
         case "y":
         case "vertical":
             var dat=key("s")+key("ArrowDown")-key("w")-key("ArrowUp")
             dat = Math.max(Math.min(dat,1),0)
-            dat = Math.round(dat*20)/20
             return dat
     }
 }
