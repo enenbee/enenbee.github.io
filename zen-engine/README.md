@@ -112,14 +112,75 @@ probably just use the variables by itself, it's shorter
 
 #### axis
 `axis(axis)`
+
 returns a value from -1 to 1 on the "x","y","horizontal", and "vertical" axises
 
 ### Gamepad
 
 #### gp_connected
 `gp_connected(id)`
+
 returns if gamepad of id `id` is connected
 
+#### gp_axes
+`gp_axes(id,axes)`
+
+returns the axis value usually from a thumbstick which ranges from -1 to 1
+
+| ID | Axis          |
+|----|---------------|
+| 0  | Left stick X  |
+| 1  | Left stick Y  |
+| 2  | Right stick X |
+| 3  | Right stick Y |
+
+#### gp_button
+`gp_button(id,button)`
+
+returns if a button is pressed
+
+Buttons:
+| ID | Xbox                | Playstation         |
+|----|---------------------|---------------------|
+| 0  | A                   | Cross               |
+| 1  | B                   | Circle              |
+| 2  | X                   | Square              |
+| 3  | Y                   | Triangle            |
+| 4  | LB                  | L1                  |
+| 5  | RB                  | R1                  |
+| 6  | LT                  | L2                  |
+| 7  | RT                  | R2                  |
+| 8  |                     |                     |
+| 9  | Menu                |                     |
+| 10 | Left stick pressed  | Left stick pressed  |
+| 11 | Right stick pressed | Right stick pressed |
+| 12 | Up                  | Up                  |
+| 13 | Down                | Down                |
+| 14 | Left                | Left                |
+| 15 | Right               | Right               |
+| 16 | Logo                | Logo                |
+
+#### gp_vibrate
+`gp_vibrate(id,duration,strong_motor_force,weak_motor_force)`
+
+Vibrates a gamepad for `duration` ms
+
+#### deadzone
+`deadzone(value,deadzone)`
+
+If `value` is less than `deadzone` returns 0, else, returns `value`
+
+Example 1:
+value = 0.2
+deadzone = 0.3
+output - 0
+
+Example 2:
+value = -0.7
+deadzone = 0.4
+output - -0.7
+
+### Drawing
 
 - Other stuff here later
 
