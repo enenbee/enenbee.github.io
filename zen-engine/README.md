@@ -57,3 +57,72 @@ function Frame(){
 
 
 ## Functions
+
+### General
+
+#### setCanvas
+`setCanvas(canvas)`
+
+Sets the default displaying canvas to `canvas`
+
+#### img
+`img(src)`
+
+Gets a image element from the src of `src`
+
+NOTE: currently adds .png to the url, this will be fixed later to also work with other formats
+
+#### set_fontfamily
+`set_fontfamily(fontfamily)`
+
+Sets the font-family of the font to `fontfamily`
+
+#### set_fontsize
+`set_fontsize(fontsize)`
+
+Sets the font-size of the font to `fontsize`
+
+#### getGamepad
+`getGamepad(id)`
+
+returns a Gamepad if connected, if not, returns null
+
+### Controls
+
+#### key
+`key(key)`
+
+returns if the key is pressed, follows Javascript naming of keys so Space is " "
+
+#### changedkey
+`changedkey(key)`
+
+returns if the key was pressed or released this frame
+
+#### justpressed
+`justpressed(key)`
+
+returns if key was pressed current frame
+
+#### getMouse
+`getMouse()`
+returns mx,my, and mdown but as values for x,y, and down
+
+probably just use the variables by itself, it's shorter
+
+#### axis
+`axis(axis)`
+returns a value from -1 to 1 on the "x","y","horizontal", and "vertical" axises
+
+### Gamepad
+
+#### gp_connected
+`gp_connected(id)`
+returns if gamepad of id `id` is connected
+
+
+- Other stuff here later
+
+## Variables
+
+- stuff here later
