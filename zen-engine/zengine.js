@@ -1,6 +1,23 @@
 
 ratio=[1920,1080]// width and height of canvas
 
+function setFPS(fps){
+    _f = setInterval(()=>{
+        __frame__()
+    },1000/fps)
+}
+
+function __frame__(){
+    useCamera(ctx,_camera)
+
+    c.width=ratio[0]*_detail
+    c.height=ratio[1]*_detail
+
+    d_clear(clearcolor)
+    Frame()
+
+    changed={}
+}
 
 /********************/
 //collision
