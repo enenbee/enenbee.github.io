@@ -16,6 +16,7 @@ function __frame__(){
     useCamera(ctx,_camera)
     Frame()
 
+    mchange=[false,false,false,false,false]
     changed={}
 }
 
@@ -101,6 +102,7 @@ function setCanvas(dom){
 
 
 mdown=[false,false,false,false,false] //Mouse keys:   left,middle,right,browser back,browser forward
+mchange=[false,false,false,false,false]
 mx=0
 my=0
 
@@ -111,8 +113,8 @@ b.onmousemove=(e)=>{
     my=(e.y-r.y)/scale
 }
 
-b.onmousedown=(e)=>{mdown[e.button]=true}
-b.onmouseup=(e)=>{mdown[e.button]=false}
+b.onmousedown=(e)=>{mdown[e.button]=true;mchange[e.button]=true}
+b.onmouseup=(e)=>{mdown[e.button]=false;mchange[e.button]=true}
 
 document.addEventListener('contextmenu', function (e) {
     e.preventDefault();
@@ -235,12 +237,12 @@ function axis(type){//will add controller input at some point
         case "x":
         case "horizontal":
             var dat=key("d")+key("ArrowRight")-key("a")-key("ArrowLeft")
-            dat = Math.max(Math.min(dat,1),0)
+            dat = Math.max(Math.min(dat,1),-1)
             return dat
         case "y":
         case "vertical":
             var dat=key("s")+key("ArrowDown")-key("w")-key("ArrowUp")
-            dat = Math.max(Math.min(dat,1),0)
+            dat = Math.max(Math.min(dat,1),-1)
             return dat
     }
 }
