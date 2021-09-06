@@ -11,9 +11,9 @@ function __frame__(){
     
     c.width=ratio[0]*_detail
     c.height=ratio[1]*_detail
-    useCamera(ctx,_camera)
 
     d_clear(clearcolor)
+    useCamera(ctx,_camera)
     Frame()
 
     changed={}
