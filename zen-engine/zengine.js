@@ -380,12 +380,16 @@ function d_image(img,x,y,attt){
     cctx.translate(x,y)
 
     cctx.rotate(att.rot||0)
+    
+    _detail/=2
 
     if(att.height==undefined){
         cctx.drawImage(img,-(att.rotx/_detail||0),-(att.roty/_detail||0),img.width/_detail,img.height/_detail)
     } else {
         cctx.drawImage(img,-(att.rotx/_detail||0),-(att.roty/_detail||0),att.width/_detail,att.height/_detail)
     }
+    
+    _detail*=2
 
     cctx.setTransform(tmp)
 
