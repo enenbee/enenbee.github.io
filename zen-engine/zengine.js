@@ -109,8 +109,8 @@ my=0
 b.onmousemove=(e)=>{
     r=c.getBoundingClientRect()
     var scale=r.width/c.width
-    mx=(e.x-r.x)/scale*_detail,
-    my=(e.y-r.y)/scale*_detail
+    mx=(e.x-r.x)/scale,
+    my=(e.y-r.y)/scale
 }
 
 b.onmousedown=(e)=>{mdown[e.button]=true;mchange[e.button]=true}
