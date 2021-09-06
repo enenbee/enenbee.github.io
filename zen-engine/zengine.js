@@ -382,9 +382,9 @@ function d_image(img,x,y,attt){
     cctx.rotate(att.rot||0)
 
     if(att.height==undefined){
-        cctx.drawImage(img,-(att.rotx||0),-(att.roty||0))
+        cctx.drawImage(img,-(att.rotx/_detail||0),-(att.roty/_detail||0),img.width/_detail,img.height/_detail)
     } else {
-        cctx.drawImage(img,-(att.rotx||0),-(att.roty||0),att.width,att.height)
+        cctx.drawImage(img,-(att.rotx/_detail||0),-(att.roty/_detail||0),att.width/_detail,att.height/_detail)
     }
 
     cctx.setTransform(tmp)
