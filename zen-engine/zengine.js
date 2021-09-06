@@ -109,8 +109,8 @@ my=0
 b.onmousemove=(e)=>{
     r=c.getBoundingClientRect()
     var scale=r.width/c.width
-    mx=(e.x-r.x)/scale,
-    my=(e.y-r.y)/scale
+    mx=(e.x-r.x)/scale*_detail,
+    my=(e.y-r.y)/scale*_detail
 }
 
 b.onmousedown=(e)=>{mdown[e.button]=true;mchange[e.button]=true}
@@ -431,7 +431,7 @@ function useCamera(canvctx,cam){
 
     cctx.resetTransform()
     cctx.scale(_detail,_detail)
-    cctx.translate(-cam[0],-cam[1])
+    cctx.translate(-cam[0]/_detail,-cam[1]/_detail)
 }
 
 _camera=[0,0]
