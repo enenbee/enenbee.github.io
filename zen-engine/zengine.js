@@ -431,7 +431,7 @@ function useCamera(canvctx,cam){
 
     cctx.resetTransform()
     cctx.scale(_detail,_detail)
-    cctx.translate(-cam[0]*_detail,-cam[1]*_detail)
+    cctx.translate(-cam[0],-cam[1])
 }
 
 _camera=[0,0]
