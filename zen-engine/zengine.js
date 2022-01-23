@@ -77,11 +77,16 @@ window.addEventListener("gamepaddisconnected", function(e) {
     controlon[e.gamepad.index]=false
 })
 
+function gamepadFallback(id){
+    //change this if you want to use keyboard input if controller fails
+    return null
+}
+
 function getGamepad(id){
     if(controlon[id]){
         return navigator.getGamepads()[id]
     } else {
-        return null
+        return gamepadFallback(id)
     }
 }
 
@@ -430,11 +435,12 @@ function useCamera(canvctx,cam){
     var cctx=(canvctx||ctx)
 
     cctx.resetTransform()
-    cctx.scale(_detail,_detail)
-    cctx.translate(-cam[0],-cam[1])
+    cctx.scale(_detail*_camzoom,_detail*_camzoom)
+    cctx.translate(-cam[0]/_camzoom,-cam[1]/_camzoom)
 }
 
 _camera=[0,0]
+_camzoom=1
 function movecamera(x,y,cam){
     if(cam==undefined){
         _camera[0]+=x
