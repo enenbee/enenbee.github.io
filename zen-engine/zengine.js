@@ -466,8 +466,8 @@ function dragcamera(x,y,div,cam,canv){
 
     if(cam==undefined){
         var cm=[
-            _camera[0]+cc.width/2,
-            _camera[1]+cc.height/2
+            _camera[0]+(cc.width/2/_camzoom),
+            _camera[1]+(cc.height/2/_camzoom)
         ]
         var dst=[
             x-cm[0],
@@ -478,13 +478,13 @@ function dragcamera(x,y,div,cam,canv){
             cm[1]+(dst[1]/div)
         ]
         _camera=[
-            cm[0]-cc.width/2,
-            cm[1]-cc.height/2
+            cm[0]-(cc.width/2/_camzoom),
+            cm[1]-(cc.height/2/_camzoom)
         ]
     } else {
         var cm=[
-            cam[0]+cc.width/2,
-            cam[1]+cc.height/2
+            cam[0]+(cc.width/2/_camzoom),
+            cam[1]+(cc.height/2/_camzoom)
         ]
         var dst=[
             x-cm[0],
@@ -495,8 +495,8 @@ function dragcamera(x,y,div,cam,canv){
             cm[1]+(dst[1]/div)
         ]
         cam=[
-            cm[0]-cc.width/2,
-            cm[1]-cc.height/2
+            cm[0]-(cc.width/2/_camzoom),
+            cm[1]-(cc.height/2/_camzoom)
         ]
     }
     useCamera(ctx,_camera)
@@ -517,7 +517,7 @@ function dragcameracenter(div,cam){
 
 function getcamerashift(canv){
     var cc=(canv||c)
-    return [cc.width/2,cc.height/2]
+    return [cc.width/2/_camzoom,cc.height/2/_camzoom]
 }
 
 function offCamera(px,py,cam,canv){
