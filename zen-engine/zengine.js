@@ -561,8 +561,8 @@ function phys_simple(obj,coll,velkeep,gravity,bounce){
 
 function phys_verlet(obj,coll,velkeep,gravity){
     
-    if(obj.ox==undefined) obj.ox=obj.x
-    if(obj.oy==undefined) obj.oy=obj.y
+    obj.ox=obj.x
+    obj.oy=obj.y
     
     var grav=(gravity||phys_gravity)
     
@@ -572,8 +572,6 @@ function phys_verlet(obj,coll,velkeep,gravity){
     var cx=vx*(velkeep||phys_velkeep)+grav[0]
     var cy=vy*(velkeep||phys_velkeep)+grav[1]
     
-    console.log(vx,vy,cx,cy)
-    
     if(!coll(obj.x+cx,obj.y,obj)){
         obj.x+=cx
     }
@@ -581,8 +579,6 @@ function phys_verlet(obj,coll,velkeep,gravity){
         obj.y+=cy
     }
     
-    obj.ox=obj.x
-    obj.oy=obj.y
 }
 
 //other
