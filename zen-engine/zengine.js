@@ -567,11 +567,14 @@ function phys_verlet(obj,coll,velkeep,gravity){
     var vx=obj.x-obj.ox
     var vy=obj.y-obj.oy
     
-    if(!coll(obj.x+vx*velkeep+(gravity||phys_gravity[0]),obj.y,obj)){
-        obj.x+=vx*velkeep+(gravity||phys_gravity)[0]
+    var cx=vx*velkeep+(gravity||phys_gravity)[0]
+    var cy=vy*velkeep+(gravity||phys_gravity)[1]
+    
+    if(!coll(obj.x+cx,obj.y,obj)){
+        obj.x+=cx
     }
-    if(!coll(obj.x,obj.y+vy*velkeep+(gravity||phys_gravity[1]),obj)){
-        obj.y+=vy*velkeep+(gravity||phys_gravity)[1]
+    if(!coll(obj.x,obj.y+cy,obj)){
+        obj.y+=cy
     }
     
     obj.ox=obj.x
