@@ -564,11 +564,13 @@ function phys_verlet(obj,coll,velkeep,gravity){
     if(obj.ox==undefined) obj.ox=obj.x
     if(obj.oy==undefined) obj.oy=obj.y
     
+    var grav=(gravity||phys_gravity)
+    
     var vx=obj.x-obj.ox
     var vy=obj.y-obj.oy
     
-    var cx=vx*velkeep+(gravity||phys_gravity)[0]
-    var cy=vy*velkeep+(gravity||phys_gravity)[1]
+    var cx=vx*velkeep||phys_velkeep+grav[0]
+    var cy=vy*velkeep||phys_velkeep+grav[1]
     
     if(!coll(obj.x+cx,obj.y,obj)){
         obj.x+=cx
