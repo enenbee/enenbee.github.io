@@ -561,13 +561,15 @@ function phys_simple(obj,coll,velkeep,gravity,bounce){
 
 function phys_verlet(obj,coll,velkeep,gravity){
     
+    var vx=obj.x-obj.ox
+    var vy=obj.y-obj.oy
+    
     obj.ox=obj.x
     obj.oy=obj.y
     
     var grav=(gravity||phys_gravity)
     
-    var vx=obj.x-obj.ox
-    var vy=obj.y-obj.oy
+
     
     console.log(vx,vy)
     
