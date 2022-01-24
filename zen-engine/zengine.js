@@ -559,6 +559,25 @@ function phys_simple(obj,coll,velkeep,gravity,bounce){
 
 }
 
+function phys_verlet(obj,coll,velkeep,gravity){
+    
+    if(obj.ox==undefined) obj.ox=obj.x
+    if(obj.oy==undefined) obj.oy=obj.y
+    
+    var vx=obj.x-obj.ox
+    var vy=obj.y-obj.oy
+    
+    if(!coll(obj.x+vx*velkeep+(gravity||phys_gravity[0]),obj.y,obj){
+        obj.x+=vx*velkeep+(gravity||phys_gravity[0])
+    }
+    if(!coll(obj.x,obj.y+vy*velkeep+(gravity||phys_gravity[1]),obj)){
+        obj.y+=vy*velkeep+(gravity||phys_gravity[1])
+    }
+    
+    obj.ox=obj.x
+    obj.oy=obj.y
+}
+
 //other
 
 function playAudio(src){
