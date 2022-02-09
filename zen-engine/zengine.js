@@ -196,6 +196,20 @@ function img(src){
     i.onload=()=>{loadedpercent[0]++}
     return i
 }
+function svg(src){
+    loadedpercent[1]++
+    var i = new Image()
+    i.src = `${imagepath}${src}.svg`
+    i.onload=()=>{loadedpercent[0]++}
+    return i
+}
+function imgr(src){
+    loadedpercent[1]++
+    var i = new Image()
+    i.src = `${imagepath}${src}`
+    i.onload=()=>{loadedpercent[0]++}
+    return i
+}
 
 
 
