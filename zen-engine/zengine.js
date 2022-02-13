@@ -7,6 +7,7 @@ function setFPS(fps){
     },1000/fps)
 }
 
+__time__=new Date()
 function __frame__(){
     
     c.width=ratio[0]*_detail
@@ -14,7 +15,8 @@ function __frame__(){
 
     d_clear(clearcolor)
     useCamera(ctx,_camera)
-    Frame()
+    Frame(new Date()-__time__)
+    __time__=new Date()
 
     mchange=[false,false,false,false,false]
     changed={}
